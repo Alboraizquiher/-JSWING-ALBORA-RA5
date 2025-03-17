@@ -2,13 +2,14 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
-package javaapplication33;
+package frames;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import static javaapplication33.Biblio.Write;
 import javax.swing.JTextField;
+import javaapplication33.Student;
 import javaapplication33.Student;
 import javax.swing.JOptionPane;
 
