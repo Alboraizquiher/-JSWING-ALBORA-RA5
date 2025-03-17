@@ -9,6 +9,7 @@ package javaapplication33;
  * @author Albora
  */
 public class Student {
+
     private String Name;
     private String LastName;
     private int Age;
@@ -57,6 +58,7 @@ public class Student {
 
     public String getDni() {
         return Dni;
+
     }
 
     public void setDni(String Dni) {
@@ -65,9 +67,7 @@ public class Student {
 
     @Override
     public String toString() {
-        return " " + Name + "; " + LastName + "; " + Age + "; " + Course + "; " + Dni;
+        return " " + Name + "; " + LastName + "; " + Age + "; " + Course + "; " + Dni + "\n";
     }
 
-   
-    
 }

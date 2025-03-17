@@ -30,74 +30,61 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="lastName" min="-2" max="-2" attributes="0"/>
-                          <Component id="name" min="-2" pref="140" max="-2" attributes="0"/>
-                          <Component id="age" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="course" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="Dni" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="Send" min="-2" pref="402" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="curso" min="-2" pref="377" max="-2" attributes="0"/>
-                              <Component id="DocumentoIdentidad" min="-2" pref="377" max="-2" attributes="0"/>
-                              <Component id="edad" alignment="1" min="-2" pref="377" max="-2" attributes="0"/>
-                              <Component id="apellidos" alignment="1" min="-2" pref="376" max="-2" attributes="0"/>
-                              <Component id="nombre" alignment="1" min="-2" pref="377" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane1" alignment="0" min="-2" pref="513" max="-2" attributes="0"/>
-                      </Group>
-                  </Group>
+                  <Component id="nombre" min="-2" pref="377" max="-2" attributes="0"/>
+                  <Component id="name" min="-2" pref="140" max="-2" attributes="0"/>
+                  <Component id="lastName" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="apellidos" alignment="0" min="-2" pref="376" max="-2" attributes="0"/>
+                  <Component id="age" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="edad" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
+                  <Component id="course" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="curso" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
+                  <Component id="Dni" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="DocumentoIdentidad" alignment="0" min="-2" pref="377" max="-2" attributes="0"/>
+                  <Component id="Send" alignment="0" min="-2" pref="96" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" alignment="0" min="-2" pref="601" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="175" max="32767" attributes="0"/>
+              <EmptySpace pref="52" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="name" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="nombre" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="lastName" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="apellidos" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="age" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="edad" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="course" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="curso" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Component id="Dni" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="DocumentoIdentidad" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
-              <Component id="Send" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="Send" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="53" max="-2" attributes="0"/>
-              <EmptySpace pref="32" max="32767" attributes="0"/>
+              <EmptySpace pref="70" max="32767" attributes="0"/>
           </Group>
-          <Component id="jPanel1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
     <Component class="javax.swing.JLabel" name="name">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Introduce the name"/>
+        <Property name="text" type="java.lang.String" value="INTRODUCE THE NAME"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nombre">
@@ -107,7 +94,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="lastName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Introduce the last name "/>
+        <Property name="text" type="java.lang.String" value="INTRODUCE THE LAST NAME"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="apellidos">
@@ -117,14 +104,14 @@
     </Component>
     <Component class="javax.swing.JLabel" name="age">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Introduce the age"/>
+        <Property name="text" type="java.lang.String" value="INTRODUCE THE AGE"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="edad">
     </Component>
     <Component class="javax.swing.JLabel" name="course">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Introduce the course"/>
+        <Property name="text" type="java.lang.String" value="INTRODUCE THE COURSE"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="curso">
@@ -134,7 +121,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Dni">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Introduce the Dni"/>
+        <Property name="text" type="java.lang.String" value="INTRODUCE THE DNI"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="DocumentoIdentidad">
@@ -153,75 +140,6 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SendActionPerformed"/>
       </Events>
     </Component>
-    <Container class="javax.swing.JPanel" name="jPanel1">
-      <Properties>
-        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="ff" green="cc" red="ff" type="rgb"/>
-        </Property>
-      </Properties>
-
-      <Layout>
-        <DimensionLayout dim="0">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
-                  <EmptySpace pref="50" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel1" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel2" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel3" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-        <DimensionLayout dim="1">
-          <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="56" max="-2" attributes="0"/>
-                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
-                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
-          </Group>
-        </DimensionLayout>
-      </Layout>
-      <SubComponents>
-        <Component class="javax.swing.JLabel" name="jLabel1">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="=&gt;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel2">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="=&gt;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel3">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="=&gt;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel4">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="=&gt;"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel5">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="=&gt;"/>
-          </Properties>
-        </Component>
-      </SubComponents>
-    </Container>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>

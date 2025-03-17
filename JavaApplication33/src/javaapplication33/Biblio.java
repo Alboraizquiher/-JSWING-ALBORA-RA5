@@ -11,10 +11,12 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javaapplication33.Student;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,16 +28,15 @@ public class Biblio {
     private static final String separatoor = File.separator;
     private static final String folderPath = projectRoute + separatoor + "nuevaCarpeta";
     private static final String fileRoute = folderPath + separatoor + "register.txt";
-    
-    /**
-     * 
-     * @throws IOException 
-     * 
-     * I have created the method to create the folder and the log file where 
-     * I will put the users through the terminal
-     * 
-     */
 
+    /**
+     *
+     * @throws IOException
+     *
+     * I have created the method to create the folder and the log file where I
+     * will put the users through the terminal
+     *
+     */
     public static void Create() throws IOException {
 
         File carpeta = new File(folderPath);
@@ -52,95 +53,107 @@ public class Biblio {
         }
 
     }
-    
+
     /**
-     * 
+     *
      * @param register
-     * @throws IOException 
-     * 
+     * @throws IOException
+     *
      * It is the method to write inside the file created previously
      */
-
     public static void Write(String register) throws IOException {
 
         File document = new File(folderPath + separatoor + "register.txt");
 
-       
-            FileWriter fw = new FileWriter(document);
-            BufferedWriter bw = new BufferedWriter(fw);
-            bw.write(register);
-            bw.flush();
-            bw.close();
-        
+        FileWriter fw = new FileWriter(document);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write(register);
+        bw.flush();
+        bw.close();
 
     }
-    
+
     /**
-     * 
+     *
      * @throws FileNotFoundException
-     * @throws IOException 
-     * 
+     * @throws IOException
+     *
      * is the method to read the previously created file
      */
-
     public static void Read() throws FileNotFoundException, IOException {
         File document = new File(folderPath + separatoor + "register.txt");
-       
-            FileReader fr = new FileReader(document);
-            BufferedReader br = new BufferedReader(fr);
-            String line = br.readLine();
 
-            while (line != null) {
+        FileReader fr = new FileReader(document);
+        BufferedReader br = new BufferedReader(fr);
+        String line = br.readLine();
 
-                System.out.println(line);
+        while (line != null) {
 
-                line = br.readLine();
-            }
+            System.out.println(line);
 
-            br.close();
+            line = br.readLine();
+        }
 
-       
+        br.close();
 
     }
-    
+
     /**
-     * 
+     *
      * @param students
      * @throws FileNotFoundException
      * @throws IOException
-     * @throws NullPointerException 
-     * 
-     * This has been the most complicated on a personal level. 
-     * It consists of saving the arrayList of students created in StudentRegister. 
-     * It consists of saving the information from 
-     * the registration file since every time the program 
-     * is initialized it is necessary to load it with the registration data.
+     * @throws NullPointerException
+     *
+     * This has been the most complicated on a personal level. It consists of
+     * saving the arrayList of students created in StudentRegister. It consists
+     * of saving the information from the registration file since every time the
+     * program is initialized it is necessary to load it with the registration
+     * data.
      */
+    
+    public static void saveData(ArrayList<Student> students) throws IOException {
+    if (students.isEmpty()) return; 
 
-    public static void saveData(ArrayList<Student> students) throws FileNotFoundException, IOException, NullPointerException {
+    FileWriter fw = new FileWriter(fileRoute, false); 
+    BufferedWriter bw = new BufferedWriter(fw);
+
+    for (Student s : students) {
+        bw.write(s.getName()+ "; " + s.getLastName()+ "; "+ s.getAge()+ "; "  + s.getCourse()+ "; " + s.getDni()+ "; ");
+        bw.newLine();
+    }
+
+    bw.close();
+}
+
+    public static void loadData(ArrayList<Student> students) throws FileNotFoundException, IOException, NullPointerException {
 
         File savefile = new File(fileRoute);
 
-        if (savefile.exists()) {
+        if (!savefile.exists()) {
 
-            FileReader fr = new FileReader(savefile);
+          System.out.println(" ERROR, THE FILE DOESN'T EXIST"); 
+          return;
+
+        } 
+        
+        students.clear();
+        
+         FileReader fr = new FileReader(savefile);
             BufferedReader br = new BufferedReader(fr);
             String line = br.readLine();
-            String[] save = line.split("; ");
 
             while (line != null) {
-
+                String[] save = line.split("; ");
                 students.add(new Student(save[0], save[1], Integer.parseInt(save[2]), save[3], save[4]));
                 line = br.readLine();
             }
 
             br.close();
-
-        } else {
-
-            System.out.println(" ERROR, THE FILE DOESN'T EXIST");
-
-        }
+            fr.close();
     }
+    
+ 
+
 
 }

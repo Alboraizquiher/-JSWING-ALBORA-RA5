@@ -13,6 +13,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import static javaapplication33.Biblio.Create;
+import static javaapplication33.Biblio.saveData;
+import static javaapplication33.StudentRegister.students;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -23,8 +26,9 @@ import javax.swing.JPanel;
  */
 public class Menu extends javax.swing.JFrame {
     
-    ArrayList <Student> students = new ArrayList <Student> ();
 
+    
+    
     /**
      * Creates new form Menu
      */
@@ -174,6 +178,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jCheckBoxMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxMenuItem1ActionPerformed
+        
+        System.out.println(students);
         ShowListUser verVentana1 = new  ShowListUser();
         escritorio.add(verVentana1);
         verVentana1.show();
@@ -196,14 +202,8 @@ public class Menu extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         
-        
-        try {
-            Biblio.Create();
-        } catch (IOException ex) {
-            Logger.getLogger(Menu.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
+        Menu menu = new Menu();
+       menu.iniciar();
        
        
         try {
@@ -225,12 +225,33 @@ public class Menu extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new Menu().setVisible(true);
         });
     }
+    
+     public void iniciar() {
+        System.out.println("--------------------------------");
+
+        try {
+            Create();
+        } catch (IOException ex) {
+            System.err.println(" ERROR ");
+        }
+
+        try {
+            saveData(students);
+            System.out.println(students);
+        } catch (IOException ex) {
+            System.err.println(" ERROR ");
+        } catch (NullPointerException ex) {
+            System.err.println(" ERROR ");
+        }
+
+        System.out.println("--------------------------------");
+
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu addStudent;

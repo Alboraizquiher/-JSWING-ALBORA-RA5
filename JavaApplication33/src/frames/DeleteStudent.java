@@ -4,17 +4,43 @@
  */
 package frames;
 
+import com.sun.source.doctree.SeeTree;
+import frames.ShowListUser;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javaapplication33.Biblio;
+import static javaapplication33.Biblio.Read;
+import static javaapplication33.Biblio.loadData;
+import static javaapplication33.Biblio.saveData;
+import javaapplication33.Student;
+import static javaapplication33.StudentRegister.students;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Usuario 1
  */
 public class DeleteStudent extends javax.swing.JInternalFrame {
 
+    private DefaultListModel<String> listModel;
+
     /**
      * Creates new form DeleteStudent
      */
     public DeleteStudent() {
+
         initComponents();
+
+        listModel = new DefaultListModel<>();
+        for (Student s : students) {
+
+            listModel.addElement(s.toString());
+
+        }
+        listStudents.setModel(listModel);
+
     }
 
     /**
@@ -27,11 +53,11 @@ public class DeleteStudent extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         introduceDni = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        texto = new javax.swing.JTextArea();
         eliminar = new javax.swing.JButton();
-        lista = new javax.swing.JTextField();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        listStudents = new javax.swing.JList<>();
+        listaDeEstudiantes = new javax.swing.JLabel();
+        escritura = new javax.swing.JTextField();
 
         setClosable(true);
         setIconifiable(true);
@@ -40,10 +66,6 @@ public class DeleteStudent extends javax.swing.JInternalFrame {
 
         introduceDni.setText("INTRODUCE EL DNI DEL ESTUDIANTE QUE QUIERAS ELIMINAR");
 
-        texto.setColumns(20);
-        texto.setRows(5);
-        jScrollPane1.setViewportView(texto);
-
         eliminar.setText("ELIMINAR");
         eliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,72 +73,118 @@ public class DeleteStudent extends javax.swing.JInternalFrame {
             }
         });
 
-        lista.addActionListener(new java.awt.event.ActionListener() {
+        listStudents.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane2.setViewportView(listStudents);
+
+        listaDeEstudiantes.setText("LISTA DE ESTUDIANTES");
+
+        escritura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                listaActionPerformed(evt);
+                escrituraActionPerformed(evt);
             }
         });
-
-        jLabel1.setText("ESTUDIANTES");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lista)
-                .addGap(32, 32, 32))
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1))
+                        .addComponent(jScrollPane2)
+                        .addContainerGap())
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(introduceDni))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(escritura, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(introduceDni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(12, 290, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 312, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(eliminar)))
-                .addContainerGap(254, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(listaDeEstudiantes)
+                            .addComponent(eliminar))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addGap(28, 28, 28)
-                .addComponent(lista, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
+                .addComponent(listaDeEstudiantes)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(introduceDni)
-                .addGap(28, 28, 28)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
+                .addGap(12, 12, 12)
+                .addComponent(escritura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(eliminar)
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(166, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
-        
+
+        String elDni = escritura.getText();
+
+        boolean encontrado = false;
+
+        for (int i = 0; i < students.size(); i++) {
+
+            if (students.get(i).getDni().equals(elDni)) {
+
+                JOptionPane.showMessageDialog(null, "Se elimino: " + students.get(i).getName() + " , " + students.get(i).getDni());
+
+                students.remove(i);
+                encontrado = true;
+
+                try {
+                    saveData(students);
+                    loadData(students);
+                } catch (IOException ex) {
+                    JOptionPane.showMessageDialog(null, "error al guardar los cambios");
+                } catch (NullPointerException ex) {
+                    System.err.println("error");
+
+                }
+
+                break;
+            }
+
+        }
+        if (!encontrado) {
+
+            JOptionPane.showMessageDialog(null, "No existe");
+
+        } else {
+            listModel = new DefaultListModel<>();
+            for (Student s : students) {
+
+                listModel.addElement(s.toString());
+
+            }
+
+        }
+
+
     }//GEN-LAST:event_eliminarActionPerformed
 
-    private void listaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_listaActionPerformed
+    private void escrituraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escrituraActionPerformed
+
+    }//GEN-LAST:event_escrituraActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton eliminar;
+    private javax.swing.JTextField escritura;
     private javax.swing.JLabel introduceDni;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField lista;
-    private javax.swing.JTextArea texto;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JList<String> listStudents;
+    private javax.swing.JLabel listaDeEstudiantes;
     // End of variables declaration//GEN-END:variables
 }
